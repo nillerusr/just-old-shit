@@ -16,10 +16,13 @@ build()
 	./waf configure -T release --android=armeabi-v7a-hard,4.9,21 --prefix=android/ --out=build-android --togles --build-game=$1 --use-ccache
 	./waf install --target=vphysics 2> /dev/null
 	mkdir -p fuck/$1
-	cp android/lib/armeabi-v7a/libvphysics.so fuck/$1/
-#	cp android/lib/armeabi-v7a/libserver.so fuck/$1/
-#	cp android/lib/armeabi-v7a/libclient.so fuck/$1/
+	cp android/lib/armeabi-v7a/libserver.so fuck/$1/
+	cp android/lib/armeabi-v7a/libclient.so fuck/$1/
 }
 
 build episodic
+build cstrike
+build portal
+build hl1
+
 cp -r fuck ../

@@ -25,7 +25,7 @@ build()
 #build cstrike
 #build portal
 #build hl1
-build dod
-build hl2mp
+#build dod
+build hl1mp
 
 cp -r fuck ../

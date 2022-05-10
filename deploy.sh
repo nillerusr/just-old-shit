@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt install -y make unzip python3
+sudo apt install -y make unzip python3 ccache
 wget https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
 unzip android-ndk-r10e-linux-x86_64.zip
 mv android-ndk-r10e ndk/

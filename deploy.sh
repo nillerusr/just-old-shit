@@ -7,8 +7,8 @@ unzip android-ndk-r10e-linux-x86_64.zip
 mv android-ndk-r10e ndk/
 export ANDROID_NDK_HOME=$(pwd)/ndk
 
-git clone --depth 1 https://gitlab.com/LostGamer/cum
-cd cum/
+git clone --depth 1 https://gitlab.com/LostGamer/source-engine/ -b sanitize
+cd source-engine/
 mkdir libs/
 
 build()

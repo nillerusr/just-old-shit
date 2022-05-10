@@ -20,5 +20,5 @@ jobs:
 
     - uses: actions/upload-artifact@v3
       with:
-      name: fuck
-      path: fuck/
+        name: fuck
+        path: fuck/

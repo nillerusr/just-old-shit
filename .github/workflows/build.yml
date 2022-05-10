@@ -1,0 +1,24 @@
+name: Build libs
+
+on:
+  push:
+    branches:
+      - "*"
+  pull_request:
+    branches:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build
+      run: |
+        ./deploy.sh
+
+    - uses: actions/upload-artifact@v3
+      with:
+      name: fuck
+      path: fuck/

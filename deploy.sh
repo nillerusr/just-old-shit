@@ -14,7 +14,7 @@ mkdir libs/
 build()
 {
 	./waf configure -T release --android=armeabi-v7a-hard,4.9,21 --prefix=android/ --out=build-android --togles --build-game=$1 --use-ccache
-	./waf install --target=client,server 2> /dev/null
+	./waf install --target=client,server
 	mkdir -p fuck/$1
 	cp android/lib/armeabi-v7a/libserver.so fuck/$1/
 	cp android/lib/armeabi-v7a/libclient.so fuck/$1/

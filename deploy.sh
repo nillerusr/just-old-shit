@@ -18,11 +18,14 @@ build()
 	mkdir -p fuck/$1
 	cp android/lib/armeabi-v7a/libserver.so fuck/$1/
 	cp android/lib/armeabi-v7a/libclient.so fuck/$1/
+	rm -rf android/
 }
 
-build episodic
-build cstrike
-build portal
-build hl1
+#build episodic
+#build cstrike
+#build portal
+#build hl1
+build dod
+build hl2mp
 
 cp -r fuck ../

@@ -10,6 +10,7 @@ export ANDROID_NDK_HOME=$(pwd)/ndk
 git clone --depth 1 https://gitlab.com/LostGamer/source-engine/ -b sanitize
 git clone --depth 1 https://gitlab.com/LostGamer/android-sdk
 export ANDROID_HOME=$(pwd)/android-sdk/
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 
 mkdir -p libs/ apks/
 git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher

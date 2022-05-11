@@ -19,12 +19,12 @@ build()
 {
 	cd source-engine/
 	./waf configure -T release --android=armeabi-v7a-hard,4.9,21 --prefix=android/ --out=build-android --togles --build-game=$1 --use-ccache || exit
-#	./waf install --target=client,server || exit
-	./waf install --target=tier0 || exit
+	./waf install --target=client,server || exit
+#	./waf install --target=tier0 || exit
 	mkdir -p ../libs/$1
-	cp android/lib/armeabi-v7a/libtier0.so ../libs/$1/
-#	cp android/lib/armeabi-v7a/libserver.so ../libs/$1/
-#	cp android/lib/armeabi-v7a/libclient.so ../libs/$1/
+#	cp android/lib/armeabi-v7a/libtier0.so ../libs/$1/
+	cp android/lib/armeabi-v7a/libserver.so ../libs/$1/
+	cp android/lib/armeabi-v7a/libclient.so ../libs/$1/
 	rm -rf android/
 
 	MOD_NAME=$1
@@ -42,8 +42,8 @@ build()
 	scripts/conv.sh ../resources/$MOD_NAME/ic_launcher.png
 
 	mkdir -p libs/armeabi-v7a/
-#	cp ../libs/$MOD_NAME/libserver.so ../libs/$MOD_NAME/libclient.so libs/armeabi-v7a/
-	cp ../libs/$MOD_NAME/libtier0.so libs/armeabi-v7a/
+	cp ../libs/$MOD_NAME/libserver.so ../libs/$MOD_NAME/libclient.so libs/armeabi-v7a/
+#	cp ../libs/$MOD_NAME/libtier0.so libs/armeabi-v7a/
 
 	if ! [ -z $VPK_NAME ];then
 		mkdir -p assets

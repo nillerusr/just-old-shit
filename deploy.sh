@@ -57,9 +57,9 @@ build()
 	cd ../
 }
 
-#build episodic 1.01 "Half-Life 2 EP1"
-#build hl2mp 1.01 "Half-Life 2: Deathmatch"
+build episodic 1.01 "Half-Life 2 EP1"
+build hl2mp 1.01 "Half-Life 2: Deathmatch"
 build cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 4
-#build portal 1.00 "Portal"
-#build hl1 1.01 "Half-Life: Source"
-#build dod 1.01 "Day of Defeat: Source"
+build portal 1.00 "Portal"
+build hl1 1.01 "Half-Life: Source"
+build dod 1.01 "Day of Defeat: Source"

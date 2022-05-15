@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt install -y make unzip python3 ccache imagemagick openjdk-8-jdk openjdk-8-jre ant-contrib
+sudo apt install -y make unzip python3 ccache imagemagick openjdk-8-jdk openjdk-8-jre ant-contrib > /dev/null
 wget https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip > /dev/null
 unzip android-ndk-r10e-linux-x86_64.zip > /dev/null
 mv android-ndk-r10e ndk/

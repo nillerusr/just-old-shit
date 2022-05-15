@@ -20,9 +20,8 @@ build()
 	cd source-engine/
 	./waf configure -T release --android=armeabi-v7a-hard,4.9,21 --prefix=android/ --out=build-android --togles --build-game=$1 --use-ccache || exit
 	./waf install --target=client,server || exit
-#	./waf install --target=tier0 || exit
 	mkdir -p ../libs/$1
-#	cp android/lib/armeabi-v7a/libtier0.so ../libs/$1/
+
 	cp android/lib/armeabi-v7a/libserver.so ../libs/$1/
 	cp android/lib/armeabi-v7a/libclient.so ../libs/$1/
 	rm -rf android/
@@ -43,7 +42,6 @@ build()
 
 	mkdir -p libs/armeabi-v7a/
 	cp ../libs/$MOD_NAME/libserver.so ../libs/$MOD_NAME/libclient.so libs/armeabi-v7a/
-#	cp ../libs/$MOD_NAME/libtier0.so libs/armeabi-v7a/
 
 	if ! [ -z $VPK_NAME ];then
 		mkdir -p assets
@@ -58,8 +56,9 @@ build()
 }
 
 build episodic 1.01 "Half-Life 2 EP1"
-build hl2mp 1.01 "Half-Life 2: Deathmatch"
-build cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 4
+build ep2 1.01 "Half-Life 2 EP2"
+build hl2mp 1.01 "Half-Life 2: Deathmatch" extras_dir.vpk 1
+build cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 5
 build portal 1.00 "Portal"
 build hl1 1.01 "Half-Life: Source"
-build dod 1.01 "Day of Defeat: Source"
+build dod 1.01 "Day of Defeat: Source" extras_dir.vpk 1

@@ -17,20 +17,20 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 
 build()
 {
+	MOD_NAME=$1
+	MOD_VER=$2
+	APP_NAME=$3
+	VPK_NAME=$4
+	VPK_VERSION=$5
+
 	cd source-engine/
-	./waf configure -T release --android=armeabi-v7a-hard,4.9,21 --prefix=android/ --out=build-android --togles --build-game=$1 --use-ccache || exit
+	CFLAGS="-w" CXXFLAGS="-w" ./waf configure -T release --android=armeabi-v7a-hard,4.9,21 --prefix=android/ --out=build-android --togles --build-game=$MOD_NAME --use-ccache || exit
 	./waf install --target=client,server || exit
 	mkdir -p ../libs/$1
 
 	cp android/lib/armeabi-v7a/libserver.so ../libs/$1/
 	cp android/lib/armeabi-v7a/libclient.so ../libs/$1/
 	rm -rf android/
-
-	MOD_NAME=$1
-	MOD_VER=$2
-	APP_NAME=$3
-	VPK_NAME=$4
-	VPK_VERSION=$5
 
 	cd ../srceng-mod-launcher/
 	git checkout .
@@ -55,8 +55,7 @@ build()
 	cd ../
 }
 
-build episodic 1.01 "Half-Life 2 EP1"
-build ep2 1.01 "Half-Life 2 EP2"
+build episodic 1.01 "Half-Life 2 EP1&2"
 build hl2mp 1.01 "Half-Life 2: Deathmatch" extras_dir.vpk 1
 build cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 5
 build portal 1.00 "Portal"

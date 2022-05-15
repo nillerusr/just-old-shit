@@ -3,11 +3,11 @@
 sudo apt-get update
 sudo apt install -y make unzip python3 ccache imagemagick openjdk-8-jdk openjdk-8-jre ant-contrib
 wget https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
-unzip android-ndk-r10e-linux-x86_64.zip
+unzip android-ndk-r10e-linux-x86_64.zip > /dev/null
 mv android-ndk-r10e ndk/
 export ANDROID_NDK_HOME=$(pwd)/ndk
 
-git clone --depth 1 https://gitlab.com/LostGamer/source-engine/ -b sanitize
+git clone --depth 1 https://github.com/nillerusr/source-engine/ -b sanitize
 git clone --depth 1 https://gitlab.com/LostGamer/android-sdk
 export ANDROID_HOME=$(pwd)/android-sdk/
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
@@ -24,7 +24,7 @@ build()
 	VPK_VERSION=$5
 
 	cd source-engine/
-	CFLAGS="-w" CXXFLAGS="-w" ./waf configure -T release --android=armeabi-v7a-hard,4.9,21 --prefix=android/ --out=build-android --togles --build-game=$MOD_NAME --use-ccache || exit
+	CFLAGS="-w" CXXFLAGS="-w" ./waf configure -T release --android=armeabi-v7a-hard,4.9,21 --prefix=android/ --out=build-android --togles --build-game=$MOD_NAME --use-ccache --disable-warns || exit
 	./waf install --target=client,server || exit
 	mkdir -p ../libs/$1
 

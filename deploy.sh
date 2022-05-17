@@ -50,7 +50,7 @@ build()
 		sed -e "s/1337/$VPK_VERSION/g" -i src/me/nillerusr/ExtractAssets.java
 	fi
 
-	ant debug && cp bin/srcmod-debug.apk ../apks/$MOD_NAME.apk
+	ant debug && cp bin/srcmod-debug.apk ../apks/$MOD_NAME-$MOD_VER.apk
 	rm -rf gen bin lib assets
 	cd ../
 }

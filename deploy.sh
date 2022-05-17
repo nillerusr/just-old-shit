@@ -55,9 +55,9 @@ build()
 	cd ../
 }
 
-build episodic 1.01 "Half-Life 2 EP1,2"
+#build episodic 1.01 "Half-Life 2 EP1,2"
 build hl2mp 1.01 "Half-Life 2: Deathmatch" extras_dir.vpk 1
 build cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 5
 build portal 1.00 "Portal"
-build hl1 1.01 "Half-Life: Source
+build hl1 1.01 "Half-Life: Source"
 #build dod 1.01 "Day of Defeat: Source" extras_dir.vpk 2

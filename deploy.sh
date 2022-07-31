@@ -15,8 +15,8 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
 mkdir -p libs/ apks/
 git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 
-build()
-{
+#build()
+#{
 	MOD_NAME=$1
 	MOD_VER=$2
 	APP_NAME=$3
@@ -45,7 +45,7 @@ build()
 
 	if ! [ -z $VPK_NAME ];then
 		mkdir -p assets
-		cp ../resources/$MOD_NAME/extras_dir.vpk assets/
+		cp ../resources/$MOD_NAME/$VPK_NAME assets/
 		sed -e "s/PACK_NAME/$VPK_NAME/g" -i src/me/nillerusr/ExtractAssets.java
 		sed -e "s/1337/$VPK_VERSION/g" -i src/me/nillerusr/ExtractAssets.java
 	fi
@@ -53,9 +53,9 @@ build()
 	ant debug && cp bin/srcmod-debug.apk ../apks/$MOD_NAME-$MOD_VER.apk
 	rm -rf gen bin lib assets
 	cd ../
-}
+#}
 
-build $*
+#build $*
 #build episodic 1.01 "Half-Life 2 EP1,2"
 #build hl2mp 1.01 "Half-Life 2: Deathmatch" extras_dir.vpk 1
 #build cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 5

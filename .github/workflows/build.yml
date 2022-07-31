@@ -77,3 +77,71 @@ jobs:
       with:
         name: portal
         path: apks/
+  build-episodic-64:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build episodic 64
+      run: |
+        ./deploy64.sh episodic 1.01 "Half-Life 2 EP1,2"
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: episodic-64
+        path: apks/
+
+  build-hl2mp-64:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build hl2mp 64
+      run: |
+        ./deploy64.sh hl2mp 1.01 "Half-Life 2: Deathmatch" extras_dir.vpk 1
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: hl2mp-64
+        path: apks/
+
+  build-hl1-64:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build hl1 64
+      run: |
+        ./deploy64.sh hl1 1.01 "Half-Life: Source"
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: hl1-64
+        path: apks/
+
+  build-cstrike-64:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build cstrike 64
+      run: |
+        ./deploy64.sh cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 5
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: cstrike-64
+        path: apks/
+  build-portal-64:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build portal
+      run: |
+        ./deploy64.sh portal 1.00 "Portal"
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: portal-64
+        path: apks/

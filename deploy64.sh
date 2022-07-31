@@ -5,9 +5,9 @@ sudo apt install -y make unzip python3 ccache imagemagick openjdk-8-jdk openjdk-
 wget https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip -o /dev/null
 unzip android-ndk-r10e-linux-x86_64.zip > /dev/null
 wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz -o /dev/null
-tar xvf clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz
+tar xvf clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz > /dev/null
 mv clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04 clang/
-export PATH=$PATH:$PWD/clang/bin
+export PATH=$PWD/clang/bin:$PATH
 
 mv android-ndk-r10e ndk/
 export ANDROID_NDK_HOME=$(pwd)/ndk

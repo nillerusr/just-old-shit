@@ -7,7 +7,7 @@ unzip android-ndk-r10e-linux-x86_64.zip > /dev/null
 mv android-ndk-r10e ndk/
 export ANDROID_NDK_HOME=$(pwd)/ndk
 
-git clone --depth 1 https://github.com/nillerusr/source-engine/ -b sanitize --recursive
+git clone --depth 1 https://github.com/nillerusr/source-engine/ --recursive
 git clone --depth 1 https://gitlab.com/LostGamer/android-sdk
 export ANDROID_HOME=$(pwd)/android-sdk/
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
@@ -55,9 +55,10 @@ build()
 	cd ../
 }
 
+build $*
 #build episodic 1.01 "Half-Life 2 EP1,2"
-build hl2mp 1.01 "Half-Life 2: Deathmatch" extras_dir.vpk 1
-build cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 5
-build portal 1.00 "Portal"
-build hl1 1.01 "Half-Life: Source"
+#build hl2mp 1.01 "Half-Life 2: Deathmatch" extras_dir.vpk 1
+#build cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 5
+#build portal 1.00 "Portal"
+#build hl1 1.01 "Half-Life: Source"
 #build dod 1.01 "Day of Defeat: Source" extras_dir.vpk 2

@@ -33,8 +33,8 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 	./waf install --target=client,server || exit
 	mkdir -p ../libs/$1
 
-	cp android/lib/armeabi-v7a/libserver.so ../libs/$1/
-	cp android/lib/armeabi-v7a/libclient.so ../libs/$1/
+	cp android/lib/arm64-v8a/libserver.so ../libs/$1/
+	cp android/lib/arm64-v8a/libclient.so ../libs/$1/
 	rm -rf android/
 
 	cd ../srceng-mod-launcher/
@@ -46,8 +46,8 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 
 	scripts/conv.sh ../resources/$MOD_NAME/ic_launcher.png
 
-	mkdir -p libs/armeabi-v7a/
-	cp ../libs/$MOD_NAME/libserver.so ../libs/$MOD_NAME/libclient.so libs/armeabi-v7a/
+	mkdir -p libs/arm64-v8a/
+	cp ../libs/$MOD_NAME/libserver.so ../libs/$MOD_NAME/libclient.so libs/arm64-v8a
 
 	if ! [ -z $VPK_NAME ];then
 		mkdir -p assets

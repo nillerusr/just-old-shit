@@ -7,7 +7,7 @@ unzip android-ndk-r10e-linux-x86_64.zip > /dev/null
 wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz -o /dev/null
 tar xvf clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz > /dev/null
 mv clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04 clang/
-export PATH=$PWD/clang/bin:$PATH
+export PATH=$(pwd)/clang/bin:$PATH
 
 mv android-ndk-r10e ndk/
 export ANDROID_NDK_HOME=$(pwd)/ndk
@@ -42,7 +42,7 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 	sed -e "s/MOD_REPLACE_ME/$MOD_NAME/g" -i AndroidManifest.xml src/me/nillerusr/LauncherActivity.java
 	sed -e "s/APP_NAME/$APP_NAME/g" -i res/values/strings.xml
 	sed -e "s/1.05/$MOD_VER/g" -i AndroidManifest.xml
-	sed -e 's/"com.valvesoftware.source"/"com.valvesoftware.source64"/g' -i src/me/nillerusr/LauncherActivity.java
+#	sed -e 's/"com.valvesoftware.source"/"com.valvesoftware.source64"/g' -i src/me/nillerusr/LauncherActivity.java
 
 	scripts/conv.sh ../resources/$MOD_NAME/ic_launcher.png
 

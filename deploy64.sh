@@ -8,9 +8,6 @@ wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/clang
 tar xvf clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz > /dev/null
 mv clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04 clang/
 export PATH=$(pwd)/clang/bin:$PATH
-echo $PATH
-clang -v
-exit
 
 mv android-ndk-r10e ndk/
 export ANDROID_NDK_HOME=$(pwd)/ndk
@@ -32,7 +29,7 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 	VPK_VERSION=$5
 
 	cd source-engine/
-	./waf configure -T release --android=aarch64,host,21 --prefix=android/ --out=build-android --togles --build-game=$MOD_NAME --use-ccache --disable-warns || exit
+	./waf configure -T release --android=aarch64,host,21 --prefix=android/ --togles --build-game=$MOD_NAME --use-ccache --disable-warns || (cat build/config.log;exit)
 	./waf install --target=client,server || exit
 	mkdir -p ../libs/$1
 

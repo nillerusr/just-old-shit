@@ -9,71 +9,84 @@ on:
       - "*"
 
 jobs:
-  build-episodic-64:
+  build-episodic:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build episodic 64
+    - name: Build episodic
       run: |
-        ./deploy64.sh episodic 1.01 "Half-Life 2 EP1,2"
+        ./deploy.sh episodic 1.01 "Half-Life 2 EP1,2"
 
     - uses: actions/upload-artifact@v3
       with:
-        name: episodic-64
+        name: episodic
         path: apks/
 
-  build-hl2mp-64:
+  build-hl2mp:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build hl2mp 64
+    - name: Build hl2mp
       run: |
-        ./deploy64.sh hl2mp 1.01 "Half-Life 2: Deathmatch" extras_dir.vpk 1
+        ./deploy.sh hl2mp 1.01 "Half-Life 2: Deathmatch" extras_dir.vpk 1
 
     - uses: actions/upload-artifact@v3
       with:
-        name: hl2mp-64
+        name: hl2mp
         path: apks/
 
-  build-hl1-64:
+  build-hl1:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build hl1 64
+    - name: Build hl1
       run: |
-        ./deploy64.sh hl1 1.01 "Half-Life: Source"
+        ./deploy.sh hl1 1.01 "Half-Life: Source"
 
     - uses: actions/upload-artifact@v3
       with:
-        name: hl1-64
+        name: hl1
         path: apks/
 
-  build-cstrike-64:
+  build-cstrike:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build cstrike 64
+    - name: Build cstrike
       run: |
-        ./deploy64.sh cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 5
+        ./deploy.sh cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 5
 
     - uses: actions/upload-artifact@v3
       with:
-        name: cstrike-64
+        name: cstrike
         path: apks/
-  build-portal-64:
+  build-portal:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Build portal
       run: |
-        ./deploy64.sh portal 1.00 "Portal"
+        ./deploy.sh portal 1.00 "Portal"
 
     - uses: actions/upload-artifact@v3
       with:
-        name: portal-64
+        name: portal
+        path: apks/
+  build-dod:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build DoD
+      run: |
+        ./deploy.sh dod 1.01 "Day of Defeat"
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: dod
         path: apks/

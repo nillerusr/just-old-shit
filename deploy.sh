@@ -7,6 +7,11 @@ unzip android-ndk-r10e-linux-x86_64.zip > /dev/null
 mv android-ndk-r10e ndk/
 export ANDROID_NDK_HOME=$(pwd)/ndk
 
+wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz -o /dev/null
+tar xvf clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz > /dev/null
+mv clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04 clang/
+export PATH=$(pwd)/clang/bin:$PATH
+
 git clone --depth 1 https://github.com/nillerusr/source-engine/ --recursive
 git clone --depth 1 https://gitlab.com/LostGamer/android-sdk
 export ANDROID_HOME=$(pwd)/android-sdk/
@@ -24,7 +29,7 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 	VPK_VERSION=$5
 
 	cd source-engine/
-	CFLAGS="-w" CXXFLAGS="-w" ./waf configure -T release --android=armeabi-v7a-hard,4.9,21 --prefix=android/ --out=build-android --togles --build-game=$MOD_NAME --use-ccache --disable-warns || exit
+	CFLAGS="-w" CXXFLAGS="-w" ./waf configure -T release --android=armeabi-v7a-hard,host,21 --prefix=android/ --out=build-android --togles --build-game=$MOD_NAME --use-ccache --disable-warns || exit
 	./waf install --target=client,server || exit
 	mkdir -p ../libs/$1
 

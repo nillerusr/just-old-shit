@@ -39,10 +39,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build hl1
-       env:
+      env:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         SSH_PASS: ${{ secrets.SSH_PASS }}
-       run: |
+      run: |
         ./deploy.sh hl1 1.01 "Half-Life: Source"
 
   build-cstrike:

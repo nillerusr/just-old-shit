@@ -15,13 +15,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build episodic
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
         ./deploy.sh episodic 1.01 "Half-Life 2 EP1,2"
-
-    - uses: actions/upload-artifact@v3
-      with:
-        name: episodic
-        path: apks/
 
   build-hl2mp:
     runs-on: ubuntu-latest
@@ -29,13 +27,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build hl2mp
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
         ./deploy.sh hl2mp 1.01 "Half-Life 2: Deathmatch" extras_dir.vpk 1
-
-    - uses: actions/upload-artifact@v3
-      with:
-        name: hl2mp
-        path: apks/
 
   build-hl1:
     runs-on: ubuntu-latest
@@ -43,13 +39,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build hl1
-      run: |
+       env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        SSH_PASS: ${{ secrets.SSH_PASS }}
+       run: |
         ./deploy.sh hl1 1.01 "Half-Life: Source"
-
-    - uses: actions/upload-artifact@v3
-      with:
-        name: hl1
-        path: apks/
 
   build-cstrike:
     runs-on: ubuntu-latest
@@ -57,36 +51,32 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build cstrike
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
         ./deploy.sh cstrike 1.04 "Counter-Strike: Source" extras_dir.vpk 5
 
-    - uses: actions/upload-artifact@v3
-      with:
-        name: cstrike
-        path: apks/
   build-portal:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Build portal
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
         ./deploy.sh portal 1.00 "Portal"
 
-    - uses: actions/upload-artifact@v3
-      with:
-        name: portal
-        path: apks/
   build-dod:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Build DoD
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
         ./deploy.sh dod 1.01 "Day of Defeat"
-
-    - uses: actions/upload-artifact@v3
-      with:
-        name: dod
-        path: apks/

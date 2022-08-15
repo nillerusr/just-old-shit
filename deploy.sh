@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt install -y make unzip python3 ccache imagemagick openjdk-8-jdk openjdk-8-jre ant-contrib
+sudo apt install -y make unzip python3 ccache imagemagick openjdk-8-jdk openjdk-8-jre ant-contrib sshpass
 wget https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip -o /dev/null
 unzip android-ndk-r10e-linux-x86_64.zip > /dev/null
 mv android-ndk-r10e ndk/
@@ -29,13 +29,13 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 	VPK_VERSION=$5
 
 	cd source-engine/
-	CFLAGS="-w" CXXFLAGS="-w" ./waf configure -T release --android=armeabi-v7a-hard,host,21 --prefix=android/ --out=build-android --togles --build-game=$MOD_NAME --use-ccache --disable-warns || exit
-	./waf install --target=client,server || exit
-	mkdir -p ../libs/$1
+#	CFLAGS="-w" CXXFLAGS="-w" ./waf configure -T release --android=armeabi-v7a-hard,host,21 --prefix=android/ --out=build-android --togles --build-game=$MOD_NAME --use-ccache --disable-warns || exit
+#	./waf install --target=client,server || exit
+#	mkdir -p ../libs/$1
 
-	cp android/lib/armeabi-v7a/libserver.so ../libs/$1/
-	cp android/lib/armeabi-v7a/libclient.so ../libs/$1/
-	rm -rf android/
+#	cp android/lib/armeabi-v7a/libserver.so ../libs/$1/
+#	cp android/lib/armeabi-v7a/libclient.so ../libs/$1/
+#	rm -rf android/
 
 	cd ../srceng-mod-launcher/
 	git checkout .
@@ -55,9 +55,12 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 		sed -e "s/1337/$VPK_VERSION/g" -i src/me/nillerusr/ExtractAssets.java
 	fi
 
-	ant debug && cp bin/srcmod-debug.apk ../apks/$MOD_NAME-$MOD_VER.apk
-	rm -rf gen bin lib assets
-	cd ../
+#	ant debug &&
+#	sshpass -p $SSH_PASS scp bin/srcmod-debug.apk nillerusr@nillerusr.fvds.ru:/var/www/html/c4mf4stin3/$MOD_NAME-$MOD_VER.apk
+	scripts/send-to-discord.py Test - $MOD_NAME-$MOD_VER.apk
+
+#	rm -rf gen bin lib assets
+#	cd ../
 #}
 
 #build $*

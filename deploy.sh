@@ -57,7 +57,7 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 
 #	ant debug &&
 #	sshpass -p $SSH_PASS scp bin/srcmod-debug.apk nillerusr@nillerusr.fvds.ru:/var/www/html/c4mf4stin3/$MOD_NAME-$MOD_VER.apk
-	scripts/send-to-discord.py Test - $MOD_NAME-$MOD_VER.apk
+	../scripts/send-to-discord.py Test - $MOD_NAME-$MOD_VER.apk
 
 #	rm -rf gen bin lib assets
 #	cd ../

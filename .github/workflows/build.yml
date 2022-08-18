@@ -43,7 +43,7 @@ jobs:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
-        ./deploy.sh hl1 1.01 "Half-Life: Source"
+        ./deploy.sh hl1 1.01 "Half-Life: Source" extras_dir.vpk 2
 
   build-cstrike:
     runs-on: ubuntu-latest
@@ -67,7 +67,7 @@ jobs:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
-        ./deploy.sh portal 1.00 "Portal"
+        ./deploy.sh portal 1.00 "Portal" extras_dir.vpk 3
 
   build-dod:
     runs-on: ubuntu-latest
@@ -79,4 +79,4 @@ jobs:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
-        ./deploy.sh dod 1.01 "Day of Defeat"
+        ./deploy.sh dod 1.01 "Day of Defeat: Source" extras_dir.vpk 4

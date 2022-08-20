@@ -28,6 +28,7 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 	VPK_NAME=$4
 	VPK_VERSION=$5
 
+	cp wscript source-engine/
 	cd source-engine/
 	./waf configure -T release --android=aarch64,host,21 --prefix=android/ --togles --build-game=$MOD_NAME --use-ccache --disable-warns || (cat build/config.log;exit)
 	./waf install --target=client,server || exit

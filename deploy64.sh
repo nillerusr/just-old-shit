@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sudo apt-get update
-sudo apt install -y make unzip python3 ccache imagemagick openjdk-8-jdk openjdk-8-jre ant-contrib
+sudo apt install -y make unzip python3 ccache imagemagick openjdk-8-jdk openjdk-8-jre ant-contrib sshpass python3-websocket
 wget https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip -o /dev/null
 unzip android-ndk-r10e-linux-x86_64.zip > /dev/null
 wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz -o /dev/null
@@ -59,7 +59,7 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 
 	ant debug &&
 	sshpass -p $SSH_PASS scp -o StrictHostKeyChecking=no bin/srcmod-debug.apk nillerusr@nillerusr.fvds.ru:/var/www/html/c4mf4stin3/$MOD_NAME-$MOD_VER.apk
-	../scripts/send-to-discord.py $3 build test - http://nillerusr.fvds.ru/c4mf4stin3/$MOD_NAME-$MOD_VER.apk
+	../scripts/send-to-discord.py $3 build test 64 - http://nillerusr.fvds.ru/c4mf4stin3/$MOD_NAME-$MOD_VER-64.apk
 
 #}
 

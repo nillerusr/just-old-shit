@@ -57,7 +57,7 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 
 	ant debug &&
 	sshpass -p $SSH_PASS scp -o StrictHostKeyChecking=no bin/srcmod-debug.apk nillerusr@nillerusr.fvds.ru:/var/www/html/c4mf4stin3/$MOD_NAME-$MOD_VER.apk
-	../scripts/send-to-discord.py $3 build test - http://nillerusr.fvds.ru/c4mf4stin3/$MOD_NAME-$MOD_VER.apk
+	../scripts/send-to-discord.py $3 build test 32 - http://nillerusr.fvds.ru/c4mf4stin3/$MOD_NAME-$MOD_VER.apk
 
 #	rm -rf gen bin lib assets
 #	cd ../
@@ -70,4 +70,3 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 #build portal 1.00 "Portal"
 #build hl1 1.01 "Half-Life: Source"
 #build dod 1.01 "Day of Defeat: Source" extras_dir.vpk 2
-

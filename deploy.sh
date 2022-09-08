@@ -30,7 +30,7 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 	VPK_VERSION=$5
 
 	cd source-engine/
-	CFLAGS="-w" CXXFLAGS="-w" ./waf configure -T release --android=armeabi-v7a-hard,host,21 --prefix=android/ --out=build-android --togles --build-game=$MOD_NAME --use-ccache --disable-warns || exit
+	CFLAGS="-w" CXXFLAGS="-w" ./waf configure -T release --android=armeabi-v7a-hard,host,21 --prefix=android/ --out=build-android --togles --build-game=$MOD_NAME --disable-warns || exit
 	./waf install --target=client,server || exit
 	mkdir -p ../libs/$1
 

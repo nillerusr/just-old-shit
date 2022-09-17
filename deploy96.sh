@@ -60,7 +60,10 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 	scripts/conv.sh ../resources/$MOD_NAME/ic_launcher.png
 
 	mkdir -p libs/arm64-v8a/
+	mkdir -p libs/armeabi-v7a/
+
 	cp ../libs/$MOD_NAME/libserver.so ../libs/$MOD_NAME/libclient.so libs/arm64-v8a
+	cp ../libs/$MOD_NAME/libserver.so ../libs/$MOD_NAME/libclient.so libs/armeabi-v7a
 
 	if ! [ -z $VPK_NAME ];then
 		mkdir -p assets

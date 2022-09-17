@@ -38,17 +38,19 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 	./waf install --target=client,server || exit
 	mkdir -p ../libs/$1
 
-	cp android/lib/armeabi-v7a/libserver.so ../libs/$1/
-	cp android/lib/armeabi-v7a/libclient.so ../libs/$1/
+	mkdir -p ../libs/$1/armeabi-v7a
+
+	cp android/lib/armeabi-v7a/libserver.so ../libs/$1/armeabi-v7a
+	cp android/lib/armeabi-v7a/libclient.so ../libs/$1/armeabi-v7a
 	rm -rf android/
 
 #64 bit
 	./waf configure -T release --android=aarch64,host,21 -8 --prefix=android/ --togles --build-game=$MOD_NAME --use-ccache --disable-warns || (cat build/config.log;exit)
 	./waf install --target=client,server || exit
-	mkdir -p ../libs/$1
+	mkdir -p ../libs/$1/arm64-v8a
 
-	cp android/lib/arm64-v8a/libserver.so ../libs/$1/
-	cp android/lib/arm64-v8a/libclient.so ../libs/$1/
+	cp android/lib/arm64-v8a/libserver.so ../libs/$1/arm64-v8a
+	cp android/lib/arm64-v8a/libclient.so ../libs/$1/arm64-v8a
 	rm -rf android/
 
 	cd ../srceng-mod-launcher/
@@ -62,8 +64,8 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 	mkdir -p libs/arm64-v8a/
 	mkdir -p libs/armeabi-v7a/
 
-	cp ../libs/$MOD_NAME/libserver.so ../libs/$MOD_NAME/libclient.so libs/arm64-v8a
-	cp ../libs/$MOD_NAME/libserver.so ../libs/$MOD_NAME/libclient.so libs/armeabi-v7a
+	cp -r ../libs/$MOD_NAME/arm64-v8a libs/
+	cp -r ../libs/$MOD_NAME/armeabi-v7a libs/
 
 	if ! [ -z $VPK_NAME ];then
 		mkdir -p assets

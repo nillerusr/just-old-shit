@@ -1,6 +1,6 @@
 "UnlitGeneric"
 {
-	"$basetexture" "vgui/touch/changeclass"
+	"$basetexture" "vgui/touch/change_class"
 	"$translucent" "1"
 	"$ignorez" "1"
 	"$vertexcolor" "1"

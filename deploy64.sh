@@ -1,5 +1,7 @@
 #!/bin/sh
 
+mkdir $HOME/.android && cp debug.keystore $HOME/.android
+
 sudo apt-get update
 sudo apt install -y make unzip python3 ccache imagemagick openjdk-8-jdk openjdk-8-jre ant-contrib sshpass python3-websocket python3-pip
 pip install vpk

@@ -1,7 +1,10 @@
 #!/bin/sh
 
+mkdir $HOME/.android && cp debug.keystore $HOME/.android
+
 sudo apt-get update
-sudo apt install -y make unzip python3 ccache imagemagick openjdk-8-jdk openjdk-8-jre ant-contrib sshpass python3-websocket
+sudo apt install -y make unzip python3 ccache imagemagick openjdk-8-jdk openjdk-8-jre ant-contrib sshpass python3-websocket python3-pip
+pip install vpk
 wget https://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip -o /dev/null
 unzip android-ndk-r10e-linux-x86_64.zip > /dev/null
 wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-16.04.tar.xz -o /dev/null
@@ -62,7 +65,7 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 
 	if ! [ -z $VPK_NAME ];then
 		mkdir -p assets
-		cp ../resources/$MOD_NAME/$VPK_NAME assets/
+		vpk -c ../resources/$MOD_NAME/vpk assets/$VPK_NAME
 		sed -e "s/PACK_NAME/$VPK_NAME/g" -i src/me/nillerusr/ExtractAssets.java
 		sed -e "s/1337/$VPK_VERSION/g" -i src/me/nillerusr/ExtractAssets.java
 	fi

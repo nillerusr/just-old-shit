@@ -19,7 +19,7 @@ jobs:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
-        ./deploy96.sh episodic 1.03 "Half-Life 2 EP1,2"
+        ./deploy96.sh episodic 1.04 "Half-Life 2 EP1,2"
 
   build-hl2mp:
     runs-on: ubuntu-latest
@@ -31,7 +31,7 @@ jobs:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
-        ./deploy96.sh hl2mp 1.03 "Half-Life 2: Deathmatch" extras_dir.vpk 3
+        ./deploy96.sh hl2mp 1.04 "Half-Life 2: Deathmatch" extras_dir.vpk 3
 
   build-hl1:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
-        ./deploy96.sh hl1 1.03 "Half-Life: Source" extras_dir.vpk 4
+        ./deploy96.sh hl1 1.04 "Half-Life: Source" extras_dir.vpk 4
 
   build-cstrike:
     runs-on: ubuntu-latest
@@ -55,7 +55,7 @@ jobs:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
-        ./deploy96.sh cstrike 1.06 "Counter-Strike: Source" extras_dir.vpk 7
+        ./deploy96.sh cstrike 1.07 "Counter-Strike: Source" extras_dir.vpk 7
 
   build-portal:
     runs-on: ubuntu-latest
@@ -67,7 +67,7 @@ jobs:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
-        ./deploy96.sh portal 1.02 "Portal" extras_dir.vpk 5
+        ./deploy96.sh portal 1.03 "Portal" extras_dir.vpk 5
 
   build-dod:
     runs-on: ubuntu-latest
@@ -79,4 +79,4 @@ jobs:
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
         SSH_PASS: ${{ secrets.SSH_PASS }}
       run: |
-        ./deploy96.sh dod 1.03 "Day of Defeat: Source" extras_dir.vpk 6
+        ./deploy96.sh dod 1.04 "Day of Defeat: Source" extras_dir.vpk 6

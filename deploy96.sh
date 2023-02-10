@@ -76,7 +76,7 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 
 	ant debug &&
 	sshpass -p $SSH_PASS scp -o StrictHostKeyChecking=no bin/srcmod-debug.apk nillerusr@185.192.97.130:/var/www/html/sauce/${MOD_NAME}-${MOD_VER}_96.apk
-	../scripts/send-to-discord.py $3 build test 96 - http://185.192.97.130/sauce/${MOD_NAME}-${MOD_VER}_96.apk
+	../scripts/send-to-discord.py $3 build test 96 - https://masturbated.one/customfiles/sauce/${MOD_NAME}-${MOD_VER}_96.apk
 
 #}
 

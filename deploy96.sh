@@ -67,6 +67,8 @@ git clone --depth 1 https://github.com/nillerusr/srceng-mod-launcher
 	cp -r ../libs/$MOD_NAME/arm64-v8a libs/
 	cp -r ../libs/$MOD_NAME/armeabi-v7a libs/
 
+	llvm-strip libs/*/*.so
+
 	if ! [ -z $VPK_NAME ];then
 		mkdir -p assets
 		vpk -c ../resources/$MOD_NAME/vpk assets/$VPK_NAME
